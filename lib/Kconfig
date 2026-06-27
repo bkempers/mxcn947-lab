@@ -1,0 +1,4 @@
+menu "Custom libraries"
+# rsource library Kconfig files here, e.g.:
+# rsource "my_lib/Kconfig"
+endmenu

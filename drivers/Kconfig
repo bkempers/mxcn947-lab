@@ -1,0 +1,4 @@
+menu "Custom drivers"
+# rsource driver Kconfig files here, e.g.:
+# rsource "my_driver/Kconfig"
+endmenu

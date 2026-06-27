@@ -1,0 +1,6 @@
+# Module-level Kconfig — injected into Zephyr's Kconfig tree
+# via zephyr/module.yml. Shows up under:
+#   Zephyr > Modules > zephyr_nxp
+
+rsource "drivers/Kconfig"
+rsource "lib/Kconfig"

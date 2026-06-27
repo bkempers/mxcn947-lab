@@ -1,0 +1,13 @@
+manifest:
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v4.4.0 # pin to a release, or use 'main' for bleeding edge
+      import:
+        name-allowlist:
+          - cmsis_6 # required for ARM Cortex-M
+          - hal_nxp # required for FRDM-MCXN947

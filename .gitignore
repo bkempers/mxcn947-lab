@@ -1,0 +1,10 @@
+# west-managed dependencies (never commit these)
+zephyr/
+modules/
+build/
+
+.cache/
+
+# python
+.venv/
+__pycache__/
