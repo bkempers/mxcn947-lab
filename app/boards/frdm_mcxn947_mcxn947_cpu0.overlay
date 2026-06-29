@@ -1,0 +1,11 @@
+&flexcomm2 {
+    status = "okay";
+};
+
+&flexcomm2_lpi2c2 {
+    bmp581: bmp581@47 {
+        compatible = "bosch,bmp581";
+        reg = <0x47>;
+        status = "okay";
+    };
+};

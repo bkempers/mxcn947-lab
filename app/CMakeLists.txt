@@ -5,7 +5,9 @@ project(mxcn947-lab)
 
 set(SOURCES
     src/main.c
-    src/led/led_manager.c
+    src/common.c
+    src/led/led.c
+    src/sensors/bmp/bmp581.c
 )
 
-target_sources(app PRIVATE src/main.c src/led/led.c)
+target_sources(app PRIVATE src/main.c src/common.c src/led/led.c src/sensors/bmp/bmp581.c)
