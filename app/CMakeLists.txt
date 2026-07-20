@@ -7,7 +7,8 @@ set(SOURCES
     src/main.c
     src/common.c
     src/led/led.c
-    src/sensors/bmp/bmp581.c
+    src/sensors/baro/bmp581.c
+    src/display/lvgl_main.c
 )
 
-target_sources(app PRIVATE src/main.c src/common.c src/led/led.c src/sensors/bmp/bmp581.c)
+target_sources(app PRIVATE ${SOURCES})

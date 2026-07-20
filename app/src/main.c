@@ -1,10 +1,13 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/sys/util.h>
 
 #include "led/led.h"
+#include "sensors/baro/bmp581.h"
+#include "display/lvgl_main.h"
 
-LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
+LOG_MODULE_REGISTER(mxcn947_lab, LOG_LEVEL_INF);
 
 // static const struct gpio_dt_spec button    = GPIO_DT_SPEC_GET(DT_ALIAS(sw0),  gpios);
 //
@@ -56,17 +59,22 @@ LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
 
 int main(void)
 {
-    LOG_INF("GPIO demo on %s", CONFIG_BOARD_TARGET);
+    LOG_INF("starting zephyr lab on %s", CONFIG_BOARD_TARGET);
+
+    if (bmp581_init() != 0) {
+        LOG_ERR("bmp581 init failed");
+        return 0;
+    }
 
     if (init_led_manager() < 0) {
         LOG_ERR("led manager init failed");
         return 0;
     }
 
-    // if (init_leds() < 0) {
-    //     LOG_ERR("init failed");
-    //     return 0;
-    // }
+    if (lvgl_ui_init() != 0) {
+        printk("LVGL UI init failed\n");
+        return 0;
+    }
 
     // if (init_leds() < 0 || init_button() < 0) {
     //     LOG_ERR("init failed");
@@ -74,7 +82,8 @@ int main(void)
     // }
 
     while (1) {
-        k_sleep(K_MSEC(500));
+        lvgl_ui_tick();   /* process LVGL redraws */
+        k_msleep(10);
     }
 
     return 0;
