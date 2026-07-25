@@ -11,4 +11,5 @@ manifest:
         name-allowlist:
           - cmsis_6 # required for ARM Cortex-M
           - hal_nxp # required for FRDM-MCXN947
+          - hal_st  # required for LSM6DSO (ST stmemsc register lib)
           - lvgl

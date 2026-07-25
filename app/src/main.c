@@ -5,6 +5,8 @@
 
 #include "led/led.h"
 #include "sensors/baro/bmp581.h"
+#include "sensors/mag/lis3mdl_m.h"
+#include "sensors/imu/lsm6dsox.h"
 #include "display/lvgl_main.h"
 
 LOG_MODULE_REGISTER(mxcn947_lab, LOG_LEVEL_INF);
@@ -63,6 +65,16 @@ int main(void)
 
     if (bmp581_init() != 0) {
         LOG_ERR("bmp581 init failed");
+        return 0;
+    }
+
+    if (lis3mdl_m_init() != 0) {
+        LOG_ERR("lis3mdl init failed");
+        return 0;
+    }
+
+    if (lsm6dsox_init() != 0) {
+        LOG_ERR("lsm6dsox init failed");
         return 0;
     }
 

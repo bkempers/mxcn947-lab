@@ -1,15 +1,33 @@
 #include <zephyr/dt-bindings/display/panel.h>
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+#include <zephyr/dt-bindings/sensor/lsm6dso.h>
 
 &flexcomm2 {
     status = "okay";
 };
 
 &flexcomm2_lpi2c2 {
+    clock-frequency = <I2C_BITRATE_FAST>;   /* 400 kHz; STANDARD if you see NAKs */
+
     bmp581: bmp581@47 {
         compatible = "bosch,bmp581";
         reg = <0x47>;
         status = "okay";
+    };
+
+    lsm6dsox: lsm6dsox@6a {
+        compatible = "st,lsm6dso";
+        reg = <0x6a>;
+        /* optional tuning — defaults are fine to start */
+        accel-range = <LSM6DSO_DT_FS_4G>;
+        accel-odr   = <LSM6DSO_DT_ODR_104Hz>;
+        gyro-range  = <LSM6DSO_DT_FS_500DPS>;
+        gyro-odr    = <LSM6DSO_DT_ODR_104Hz>;
+    };
+
+    lis3mdl: lis3mdl@1c {
+        compatible = "st,lis3mdl-magn";
+        reg = <0x1c>;
     };
 };
 
@@ -64,5 +82,7 @@
 / {
 	aliases {
 		baro-bmp581 = &bmp581;
+        imu-lsm6dsox = &lsm6dsox;
+        mag-lis3mdl = &lis3mdl;
 	};
 };

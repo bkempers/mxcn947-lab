@@ -8,6 +8,10 @@ set(SOURCES
     src/common.c
     src/led/led.c
     src/sensors/baro/bmp581.c
+    src/sensors/imu/lsm6dsox.c
+    src/sensors/mag/lis3mdl_m.c
+    src/sensors/mag/compass.c
+    src/sensors/mag/mag_calibration.c
     src/display/lvgl_main.c
 )
 
