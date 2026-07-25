@@ -66,7 +66,7 @@ int main(void)
         return 0;
     }
 
-    if (init_led_manager() < 0) {
+    if (led_init() != 0) {
         LOG_ERR("led manager init failed");
         return 0;
     }

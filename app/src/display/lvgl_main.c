@@ -7,8 +7,7 @@
 
 #include "lvgl_main.h"
 
-static const struct device *const display_dev =
-    DEVICE_DT_GET(DT_NODELABEL(st7789v));
+static const struct device *const display_dev = DEVICE_DT_GET(DT_NODELABEL(st7789v));
 
 static lv_obj_t *temp_label;
 static lv_obj_t *press_label;

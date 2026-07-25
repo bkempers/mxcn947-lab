@@ -51,7 +51,7 @@ static void blink_stop(struct led_blink_ctx *ctx)
     gpio_pin_set_dt(ctx->spec, 0);
 }
 
-int init_led_manager(void)
+int led_init(void)
 {
     int ret;
 
@@ -63,7 +63,7 @@ int init_led_manager(void)
         !device_is_ready(green_led.port) ||
         !device_is_ready(blue_led.port)) {
         LOG_ERR("LED GPIO port not ready");
-        return -ENODEV;
+        return -1;
     }
 
     /*
@@ -79,7 +79,7 @@ int init_led_manager(void)
     blink_init(&green_blink_ctx, &green_led);
     blink_init(&red_blink_ctx, &red_led);
 
-    return ret;
+    return 0;
 }
 
 void led_error()
