@@ -1,27 +1,26 @@
 #include "sensors.h"
 #include "misc/lv_area.h"
+#include "../theme/lvgl_theme.h"
+#include "../widgets/lvgl_widgets.c"
 
 static lv_obj_t *lbl_temp;
 static lv_obj_t *lbl_press;
 static lv_obj_t *lbl_alt;
 
-lv_obj_t *sensors_create(lv_obj_t *parent) {
-    lv_obj_t *root = lv_obj_create(parent);
-    lv_obj_set_size(root, LV_PCT(100), LV_PCT(100));
-    lbl_temp  = lv_label_create(root);
-    lbl_press = lv_label_create(root);
-    lbl_alt = lv_label_create(root);
+void sensors_create(lv_obj_t *parent) 
+{
+    lv_obj_add_style(parent, &ui_st_screen, 0);
+    lv_obj_set_flex_flow(parent, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_scrollbar_mode(parent, LV_SCROLLBAR_MODE_OFF);
 
-    /* layout with flex/grid, apply theme styles... */
-    lv_obj_align(lbl_temp, LV_ALIGN_CENTER, 0, -20);
-    lv_obj_align(lbl_press, LV_ALIGN_CENTER, 0, 20);
-    lv_obj_align(lbl_alt, LV_ALIGN_CENTER, 0, 40);
-
-    return root;
+    lbl_temp  = stat_card(parent, "TEMPERATURE", "F");
+    lbl_press = stat_card(parent, "PRESSURE", "hPa");
+    lbl_alt   = stat_card(parent, "ALTITUDE", "m");
 }
 
-void sensors_baro_update(const struct baro_data *baro) {
-    lv_label_set_text_fmt(lbl_temp, "%.2f C", (double)baro->temp_c);
-    lv_label_set_text_fmt(lbl_press, "%.1f hPa", (double)baro->pressure_hpa);
-    lv_label_set_text_fmt(lbl_alt, "%f m", (double)baro->altitude_m);
+void sensors_baro_update(const struct baro_data *baro) 
+{
+    lv_label_set_text_fmt(lbl_temp, "%.2f", (double)celcius_to_farhenheit(baro->temp_c));
+    lv_label_set_text_fmt(lbl_press, "%.1f", (double)baro->pressure_hpa);
+    lv_label_set_text_fmt(lbl_alt, "%.2f", (double)baro->altitude_m);
 }

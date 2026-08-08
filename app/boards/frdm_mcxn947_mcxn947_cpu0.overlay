@@ -7,7 +7,7 @@
 };
 
 &flexcomm2_lpi2c2 {
-    clock-frequency = <I2C_BITRATE_FAST>;   /* 400 kHz; STANDARD if you see NAKs */
+    clock-frequency = <I2C_BITRATE_STANDARD>;   /* 400 kHz; */
 
     bmp581: bmp581@47 {
         compatible = "bosch,bmp581";
@@ -34,6 +34,8 @@
 &flexcomm1_lpspi1 {
     /delete-property/ dmas;
     /delete-property/ dma-names;
+    /* dmas = <&edma0 4 0x47>, <&edma0 5 0x48>; */
+    /* dma-names = "rx", "tx"; */
     cs-gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
 };
 

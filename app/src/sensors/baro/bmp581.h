@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+static inline float celcius_to_farhenheit(float c) { return c * 9.0f / 5.0f + 32.0f; }
+
 struct baro_data {
 	float   pressure_hpa;
 	float   altitude_m;
