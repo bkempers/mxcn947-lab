@@ -1,8 +1,13 @@
 #ifndef LVGL_MAIN_H
 #define LVGL_MAIN_H
 
-int lvgl_ui_init(void);
-void lvgl_ui_update(int temp_c, int temp_frac, int press_kpa, int press_frac);
-void lvgl_ui_tick(void);
+#include <lvgl.h>
+
+int lvgl_display_init(void);
+void display_update(int temp_c, int temp_frac, int press_kpa, int press_frac);
+void display_tick(void);
+
+void home_create(lv_obj_t *parent);
+void home_update(const struct baro_data *b, bool ok);
 
 #endif

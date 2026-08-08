@@ -13,6 +13,10 @@ set(SOURCES
     src/sensors/mag/compass.c
     src/sensors/mag/mag_calibration.c
     src/display/lvgl_main.c
+    src/display/theme/lvgl_theme.c
+    src/display/widgets/lvgl_widgets.c
+    src/display/screens/home.c
+    src/display/screens/sensors.c
 )
 
 target_sources(app PRIVATE ${SOURCES})

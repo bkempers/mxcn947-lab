@@ -83,7 +83,7 @@ int main(void)
         return 0;
     }
 
-    if (lvgl_ui_init() != 0) {
+    if (lvgl_display_init() != 0) {
         printk("LVGL UI init failed\n");
         return 0;
     }
@@ -94,7 +94,7 @@ int main(void)
     // }
 
     while (1) {
-        lvgl_ui_tick();   /* process LVGL redraws */
+        display_tick();   /* process LVGL redraws */
         k_msleep(10);
     }
 
