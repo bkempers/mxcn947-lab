@@ -1,0 +1,17 @@
+list(
+  APPEND
+  LV_EDITOR_PROJECT_SOURCES
+  ${CMAKE_CURRENT_LIST_DIR}/components/info_row_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/metric_tile_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/switcher_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/display_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/display.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/icons_24_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/jetbrains_12_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/jetbrains_14_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/jetbrains_bold_18_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/jetbrains_bold_40_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/barometer_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/home_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/motion_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/settings_gen.c)

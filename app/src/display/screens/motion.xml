@@ -1,0 +1,108 @@
+<screen>
+	<view extends="lv_obj" flex_flow="column">
+		<style name="page" />
+
+		<lv_obj flex_grow="1" width="100%" flex_flow="column">
+			<style name="content" />
+
+			<lv_obj
+				width="100%"
+				height="content"
+				flex_flow="row"
+				style_flex_main_place="space_between"
+				style_flex_cross_place="center"
+				style_bg_opa="0"
+				style_border_width="0"
+				style_pad_all="0"
+				style_pad_bottom="4"
+			>
+				<lv_label text="Motion">
+					<style name="title" />
+				</lv_label>
+				<lv_obj>
+					<style name="dot" />
+				</lv_obj>
+			</lv_obj>
+
+			<!-- compass (hero) -->
+			<lv_obj width="100%" height="content" style_pad_all="8" flex_flow="column" style_flex_cross_place="center">
+				<style name="card_style" />
+				<lv_scale
+					name="compass"
+					width="98"
+					height="98"
+					mode="round_inner"
+					rotation="270"
+					angle_range="360"
+					min_value="0"
+					max_value="360"
+					total_tick_count="37"
+					major_tick_every="9"
+					label_show="false"
+					style_line_width="2"
+					style_line_color="#border"
+					style_length="6"
+				>
+					<lv_line name="needle" style_line_width="3" style_line_color="#accent" style_line_rounded="true" />
+					<lv_label bind_text="heading_str" align="center">
+						<style name="value" />
+					</lv_label>
+				</lv_scale>
+			</lv_obj>
+
+			<!-- horizon + roll/pitch beside it -->
+			<lv_obj
+				width="100%"
+				height="content"
+				style_pad_all="8"
+				flex_flow="row"
+				style_flex_cross_place="center"
+				style_pad_column="12"
+			>
+				<style name="card_style" />
+				<lv_obj
+					name="horizon_slot"
+					width="84"
+					height="84"
+					style_radius="42"
+					style_clip_corner="true"
+					style_border_width="1"
+					style_border_color="#border"
+					style_bg_color="#sky"
+					style_pad_all="0"
+				>
+					<lv_obj
+						width="32"
+						height="2"
+						align="center"
+						style_bg_color="#text"
+						style_border_width="0"
+						style_radius="0"
+					/>
+				</lv_obj>
+				<lv_obj
+					flex_grow="1"
+					height="content"
+					flex_flow="column"
+					style_bg_opa="0"
+					style_border_width="0"
+					style_pad_all="0"
+				>
+					<lv_label text="ROLL">
+						<style name="label_xs" />
+					</lv_label>
+					<lv_label bind_text="roll_str">
+						<style name="value" />
+					</lv_label>
+					<lv_label text="PITCH" style_pad_top="6">
+						<style name="label_xs" />
+					</lv_label>
+					<lv_label bind_text="pitch_str">
+						<style name="value" />
+					</lv_label>
+				</lv_obj>
+			</lv_obj>
+		</lv_obj>
+		<switcher />
+	</view>
+</screen>

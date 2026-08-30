@@ -1,0 +1,39 @@
+<screen>
+	<view extends="lv_obj" flex_flow="column">
+		<style name="page" />
+		<lv_obj flex_grow="1" width="100%" flex_flow="column">
+			<style name="content" />
+			<lv_obj
+				width="100%"
+				height="content"
+				flex_flow="row"
+				style_flex_main_place="space_between"
+				style_flex_cross_place="center"
+				style_bg_opa="0"
+				style_border_width="0"
+				style_pad_all="0"
+				style_pad_bottom="4"
+			>
+				<lv_label text="MCXN947 Lab">
+					<style name="title" />
+				</lv_label>
+				<lv_obj>
+					<style name="dot" />
+				</lv_obj>
+			</lv_obj>
+			<lv_obj width="100%" height="content" flex_flow="column">
+				<style name="card_style" />
+				<lv_label text="UPTIME">
+					<style name="label_xs" />
+				</lv_label>
+				<lv_label bind_text="uptime_str" style_pad_top="4">
+					<style name="hero" />
+				</lv_label>
+			</lv_obj>
+			<lv_label bind_text="zephyr_str" style_pad_top="2">
+				<style name="label_xs" />
+			</lv_label>
+		</lv_obj>
+		<switcher />
+	</view>
+</screen>
