@@ -1,0 +1,149 @@
+<globals>
+	<consts>
+		<color name="bg" value="0xEEF1F5" />
+		<color name="card_color" value="0xFFFFFF" />
+		<color name="border" value="0xE4E7EC" />
+		<color name="text" value="0x1A1D22" />
+		<color name="dim" value="0x667085" />
+		<color name="accent" value="0x2E5BFF" />
+		<color name="pillbg" value="0xEDF0F3" />
+		<color name="dock_color" value="0x1A1D22" />
+		<color name="dockdim" value="0x98A2B3" />
+		<color name="sky" value="0xAFD4EE" />
+		<color name="ground" value="0xC9AD86" />
+	</consts>
+
+	<fonts>
+		<bin
+			as_file="false"
+			name="jetbrains_12"
+			src_path="fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+			size="12"
+			bpp="4"
+			range="0x20-0x7f"
+		/>
+		<bin
+			as_file="false"
+			name="jetbrains_14"
+			src_path="fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+			size="14"
+			bpp="4"
+			range="0x20-0x7f"
+		/>
+		<bin
+			as_file="false"
+			name="jetbrains_bold_18"
+			src_path="fonts/JetBrainsMonoNerdFontMono-Bold.ttf"
+			size="18"
+			bpp="4"
+			range="0x20-0x7f"
+		/>
+		<bin
+			as_file="false"
+			name="jetbrains_bold_40"
+			src_path="fonts/JetBrainsMonoNerdFontMono-Bold.ttf"
+			size="40"
+			bpp="4"
+			range="0x20-0x7f"
+		/>
+		<bin
+			as_file="false"
+			name="icons_24"
+			src_path="fonts/fa-solid-900.ttf"
+			size="24"
+			bpp="4"
+			range="0xf013,0xf015,0xf6fc,0xf14e"
+		/>
+	</fonts>
+
+	<styles>
+		<style name="page" bg_color="#bg" bg_opa="255" border_width="0" pad_all="0" width="100%" height="100%" />
+
+		<style
+			name="card_style"
+			bg_color="#card_color"
+			bg_opa="255"
+			radius="14"
+			border_width="1"
+			border_color="#border"
+			pad_all="14"
+			width="100%"
+			height="content"
+		/>
+		<style
+			name="tile"
+			bg_color="#card_color"
+			bg_opa="255"
+			radius="12"
+			border_width="1"
+			border_color="#border"
+			pad_all="10"
+			height="content"
+		/>
+		<style name="title" text_font="jetbrains_bold_18" text_color="#text" />
+		<style name="hero" text_font="jetbrains_bold_40" text_color="#text" />
+		<style name="value" text_font="jetbrains_bold_18" text_color="#text" />
+		<style name="value_sm" text_font="jetbrains_14" text_color="#text" />
+		<style name="label_xs" text_font="jetbrains_12" text_color="#dim" text_letter_space="1" />
+		<style name="unit" text_font="jetbrains_14" text_color="#dim" />
+		<style
+			name="pill"
+			bg_color="#pillbg"
+			bg_opa="255"
+			radius="20"
+			pad_left="8"
+			pad_right="8"
+			pad_top="2"
+			pad_bottom="2"
+			text_font="jetbrains_12"
+			text_color="#dim"
+		/>
+		<style name="dot" bg_color="#accent" bg_opa="255" radius="4" width="8" height="8" border_width="0" />
+		<style name="dock_style" bg_color="#dock_color" bg_opa="255" radius="18" pad_all="6" border_width="0" />
+		<style name="icon" text_font="icons_24" text_color="#dockdim" />
+
+		<style
+			name="navbar"
+			bg_color="#card_color"
+			bg_opa="255"
+			border_width="1"
+			border_color="#border"
+			border_side="top"
+			radius="0"
+			pad_all="0"
+		/>
+
+		<style
+			name="content"
+			bg_opa="0"
+			border_width="0"
+			pad_left="12"
+			pad_right="12"
+			pad_top="12"
+			pad_bottom="8"
+			pad_row="8"
+			width="100%"
+		/>
+	</styles>
+
+	<subjects>
+		<int name="active_screen" value="1" />
+		<string name="empty_str" value="" />
+		<string name="board_str" value="---" />
+		<string name="zephyr_str" value="---" />
+		<string name="firmware_str" value="---" />
+		<string name="built_str" value="---" />
+		<string name="uptime_str" value="0:00:00" />
+		<string name="temp_str" value="--" />
+		<string name="press_str" value="--" />
+		<string name="alt_str" value="--" />
+		<string name="alt_unit" value="m" />
+		<string name="press_trend" value="--" />
+		<int name="heading_deg" value="0" />
+		<string name="heading_str" value="---" />
+		<int name="roll_deg" value="0" />
+		<int name="pitch_deg" value="0" />
+		<string name="roll_str" value="--" />
+		<string name="pitch_str" value="--" />
+	</subjects>
+</globals>

@@ -3,7 +3,13 @@ zephyr/
 modules/
 build/
 
+# LVGL editor preview runtime (throwaway simulator build)
+app/src/display/preview-build/
+app/src/display/preview-bin/
+app/src/display/.theia/
+
 .cache/
+.DS_Store
 
 # python
 .venv/

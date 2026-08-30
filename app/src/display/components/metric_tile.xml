@@ -1,0 +1,30 @@
+<component>
+	<api>
+		<prop type="string" name="caption" />
+		<prop type="subject" name="value_subject" />
+		<prop type="string" name="unit_str" />
+	</api>
+	<view extends="lv_obj" height="content" style_flex_grow="1" flex_flow="column">
+		<style name="tile" />
+		<lv_label text="$caption">
+			<style name="label_xs" />
+		</lv_label>
+		<lv_obj
+			width="100%"
+			height="content"
+			flex_flow="row"
+			style_flex_cross_place="end"
+			style_pad_column="3"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_pad_all="0"
+		>
+			<lv_label bind_text="$value_subject">
+				<style name="value" />
+			</lv_label>
+			<lv_label text="$unit_str">
+				<style name="unit" />
+			</lv_label>
+		</lv_obj>
+	</view>
+</component>

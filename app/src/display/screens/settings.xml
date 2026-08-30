@@ -1,0 +1,26 @@
+<screen>
+	<view extends="lv_obj" flex_flow="column">
+		<style name="page" />
+
+		<!-- content region: grows to fill all space above the bar -->
+		<lv_obj flex_grow="1" width="100%" flex_flow="column" style_flex_cross_place="start">
+			<style name="content" />
+
+			<lv_label text="Settings" style_pad_bottom="4">
+				<style name="title" />
+			</lv_label>
+
+			<lv_obj flex_flow="column">
+				<style name="card_style" />
+				<lv_label text="SYSTEM" style_pad_bottom="4">
+					<style name="label_xs" />
+				</lv_label>
+				<info_row key="Board" value_subject="board_str" />
+				<info_row key="Zephyr" value_subject="zephyr_str" />
+				<info_row key="Firmware" value_subject="firmware_str" />
+				<info_row key="Built" value_subject="built_str" />
+			</lv_obj>
+		</lv_obj>
+		<switcher />
+	</view>
+</screen>
