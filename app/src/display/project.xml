@@ -1,8 +1,8 @@
 <project lvgl_version="9.5.0" theme="simple">
 	<targets>
 		<target name="frdm_mcxn947">
-			<display width="240" height="320" />
-			<memory name="int_ram" size="128K" />
+			<display width="320" height="480" />
+			<memory name="int_ram" size="512K" />
 			<memory name="int_flash" size="2M" />
 		</target>
 	</targets>

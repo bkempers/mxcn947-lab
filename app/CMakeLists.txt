@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.20.0)
 
+set(SHIELD lcd_par_s035_8080)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(mxcn947-lab)
 
-target_compile_definitions(app PRIVATE LV_LVGL_H_INCLUDE_SIMPLE=1)
+target_compile_definitions(app PRIVATE
+    LV_LVGL_H_INCLUDE_SIMPLE=1
+    UI_SUBJECT_STRING_LENGTH=64)
 
 set(DISPLAY ${CMAKE_CURRENT_SOURCE_DIR}/src/display)
 file(GLOB_RECURSE DISPLAY_GEN

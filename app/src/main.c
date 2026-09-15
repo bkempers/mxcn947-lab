@@ -1,17 +1,18 @@
-#include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/util.h>
 
+#include "display/lvgl_main.h"
 #include "led/led.h"
 #include "sensors/baro/bmp581.h"
-#include "sensors/mag/lis3mdl_m.h"
 #include "sensors/imu/lsm6dsox.h"
-#include "display/lvgl_main.h"
+#include "sensors/mag/lis3mdl_m.h"
 
 LOG_MODULE_REGISTER(mxcn947_lab, LOG_LEVEL_INF);
 
-// static const struct gpio_dt_spec button    = GPIO_DT_SPEC_GET(DT_ALIAS(sw0),  gpios);
+// static const struct gpio_dt_spec button    = GPIO_DT_SPEC_GET(DT_ALIAS(sw0),
+// gpios);
 //
 // /*
 //  * GPIO interrupt callback — fires on button press.
@@ -59,44 +60,45 @@ LOG_MODULE_REGISTER(mxcn947_lab, LOG_LEVEL_INF);
 //     return 0;
 // }
 
-int main(void)
-{
-    LOG_INF("starting zephyr lab on %s", CONFIG_BOARD_TARGET);
+int main(void) {
+  LOG_INF("starting zephyr lab on %s", CONFIG_BOARD_TARGET);
+  LOG_INF("build %s %s", __DATE__, __TIME__);
 
-    if (bmp581_init() != 0) {
-        LOG_ERR("bmp581 init failed");
-        return 0;
-    }
-
-    if (lis3mdl_m_init() != 0) {
-        LOG_ERR("lis3mdl init failed");
-        return 0;
-    }
-
-    if (lsm6dsox_init() != 0) {
-        LOG_ERR("lsm6dsox init failed");
-        return 0;
-    }
-
-    if (led_init() != 0) {
-        LOG_ERR("led manager init failed");
-        return 0;
-    }
-
-    if (lvgl_display_init() != 0) {
-        printk("LVGL UI init failed\n");
-        return 0;
-    }
-
-    // if (init_leds() < 0 || init_button() < 0) {
-    //     LOG_ERR("init failed");
-    //     return 0;
-    // }
-
-    while (1) {
-        display_tick();   /* process LVGL redraws */
-        k_msleep(10);
-    }
-
+  if (bmp581_init() != 0) {
+    LOG_ERR("bmp581 init failed");
     return 0;
+  }
+
+  if (lis3mdl_m_init() != 0) {
+    LOG_ERR("lis3mdl init failed");
+    return 0;
+  }
+
+  if (lsm6dsox_init() != 0) {
+    LOG_ERR("lsm6dsox init failed");
+    return 0;
+  }
+
+  if (led_init() != 0) {
+    LOG_ERR("led manager init failed");
+    return 0;
+  }
+
+  if (lvgl_display_init() != 0) {
+    printk("LVGL UI init failed\n");
+    return 0;
+  }
+
+  // if (init_leds() < 0 || init_button() < 0) {
+  //     LOG_ERR("init failed");
+  //     return 0;
+  // }
+
+  while (1) {
+    lv_timer_handler();
+    // display_tick(); /* process LVGL redraws */
+    k_msleep(10);
+  }
+
+  return 0;
 }
