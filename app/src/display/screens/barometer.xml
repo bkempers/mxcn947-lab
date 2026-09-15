@@ -59,25 +59,6 @@
 				<metric_tile caption="TEMP" value_subject="temp_str" unit_str="F" />
 				<metric_tile caption="PRESSURE" value_subject="press_str" unit_str="hPa" />
 			</lv_obj>
-
-			<lv_obj
-				width="100%"
-				height="content"
-				flex_flow="row"
-				style_flex_main_place="space_between"
-				style_flex_cross_place="center"
-				style_bg_opa="0"
-				style_border_width="0"
-				style_pad_all="0"
-				style_pad_top="4"
-			>
-				<lv_label text="PRESSURE TREND">
-					<style name="label_xs" />
-				</lv_label>
-				<lv_label bind_text="press_trend">
-					<style name="pill" />
-				</lv_label>
-			</lv_obj>
 		</lv_obj>
 		<switcher />
 	</view>

@@ -42,7 +42,7 @@ lv_obj_t * switcher_create(lv_obj_t * parent)
         lv_obj_t * lv_obj_0 = lv_obj_create(parent);
         lv_obj_set_name_static(lv_obj_0, "switcher_#");
         lv_obj_set_width(lv_obj_0, lv_pct(100));
-        lv_obj_set_height(lv_obj_0, 40);
+        lv_obj_set_height(lv_obj_0, 50);
         lv_obj_set_flex_flow(lv_obj_0, LV_FLEX_FLOW_ROW);
         lv_obj_set_style_flex_main_place(lv_obj_0, LV_FLEX_ALIGN_SPACE_EVENLY, 0);
         lv_obj_set_style_flex_cross_place(lv_obj_0, LV_FLEX_ALIGN_CENTER, 0);
@@ -53,7 +53,7 @@ lv_obj_t * switcher_create(lv_obj_t * parent)
         lv_obj_add_style(lv_obj_0, &navbar, 0);
         lv_obj_t * lv_button_0 = lv_button_create(lv_obj_0);
         lv_obj_set_width(lv_button_0, 36);
-        lv_obj_set_height(lv_button_0, 30);
+        lv_obj_set_height(lv_button_0, 40);
         lv_obj_set_style_bg_opa(lv_button_0, 0, 0);
         lv_obj_set_style_border_width(lv_button_0, 0, 0);
         lv_obj_set_style_bg_color(lv_button_0, ACCENT, LV_STATE_CHECKED);
@@ -69,7 +69,7 @@ lv_obj_t * switcher_create(lv_obj_t * parent)
 
         lv_obj_t * lv_button_1 = lv_button_create(lv_obj_0);
         lv_obj_set_width(lv_button_1, 36);
-        lv_obj_set_height(lv_button_1, 30);
+        lv_obj_set_height(lv_button_1, 40);
         lv_obj_set_style_bg_opa(lv_button_1, 0, 0);
         lv_obj_set_style_border_width(lv_button_1, 0, 0);
         lv_obj_set_style_bg_color(lv_button_1, ACCENT, LV_STATE_CHECKED);
@@ -85,7 +85,7 @@ lv_obj_t * switcher_create(lv_obj_t * parent)
 
         lv_obj_t * lv_button_2 = lv_button_create(lv_obj_0);
         lv_obj_set_width(lv_button_2, 36);
-        lv_obj_set_height(lv_button_2, 30);
+        lv_obj_set_height(lv_button_2, 40);
         lv_obj_set_style_bg_opa(lv_button_2, 0, 0);
         lv_obj_set_style_border_width(lv_button_2, 0, 0);
         lv_obj_set_style_bg_color(lv_button_2, ACCENT, LV_STATE_CHECKED);
@@ -101,7 +101,7 @@ lv_obj_t * switcher_create(lv_obj_t * parent)
 
         lv_obj_t * lv_button_3 = lv_button_create(lv_obj_0);
         lv_obj_set_width(lv_button_3, 36);
-        lv_obj_set_height(lv_button_3, 30);
+        lv_obj_set_height(lv_button_3, 40);
         lv_obj_set_style_bg_opa(lv_button_3, 0, 0);
         lv_obj_set_style_border_width(lv_button_3, 0, 0);
         lv_obj_set_style_bg_color(lv_button_3, ACCENT, LV_STATE_CHECKED);
