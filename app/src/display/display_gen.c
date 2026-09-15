@@ -79,9 +79,7 @@ lv_style_t label_xs;
 lv_style_t unit;
 lv_style_t pill;
 lv_style_t dot;
-lv_style_t dock_style;
 lv_style_t icon;
-lv_style_t navbar;
 lv_style_t content;
 
 /*----------------
@@ -195,9 +193,7 @@ void display_init_gen(const char * asset_path)
         lv_style_init(&unit);
         lv_style_init(&pill);
         lv_style_init(&dot);
-        lv_style_init(&dock_style);
         lv_style_init(&icon);
-        lv_style_init(&navbar);
         lv_style_init(&content);
 
         lv_style_set_bg_color(&page, BG);
@@ -249,20 +245,8 @@ void display_init_gen(const char * asset_path)
         lv_style_set_width(&dot, 8);
         lv_style_set_height(&dot, 8);
         lv_style_set_border_width(&dot, 0);
-        lv_style_set_bg_color(&dock_style, DOCK_COLOR);
-        lv_style_set_bg_opa(&dock_style, 255);
-        lv_style_set_radius(&dock_style, 18);
-        lv_style_set_pad_all(&dock_style, 6);
-        lv_style_set_border_width(&dock_style, 0);
         lv_style_set_text_font(&icon, icons_24);
         lv_style_set_text_color(&icon, DOCKDIM);
-        lv_style_set_bg_color(&navbar, CARD_COLOR);
-        lv_style_set_bg_opa(&navbar, 255);
-        lv_style_set_border_width(&navbar, 1);
-        lv_style_set_border_color(&navbar, BORDER);
-        lv_style_set_border_side(&navbar, LV_BORDER_SIDE_TOP);
-        lv_style_set_radius(&navbar, 0);
-        lv_style_set_pad_all(&navbar, 0);
         lv_style_set_bg_opa(&content, 0);
         lv_style_set_border_width(&content, 0);
         lv_style_set_pad_left(&content, 12);

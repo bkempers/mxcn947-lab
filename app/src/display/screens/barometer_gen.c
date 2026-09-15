@@ -106,8 +106,6 @@ lv_obj_t * barometer_create(void)
 
         metric_tile_create(lv_obj_6, "PRESSURE", &press_str, "hPa");
 
-        switcher_create(lv_obj_0);
-
         the_root = lv_obj_0;
     }
     #endif

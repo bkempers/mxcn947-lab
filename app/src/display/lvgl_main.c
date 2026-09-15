@@ -12,39 +12,18 @@
 
 LOG_MODULE_REGISTER(display, LOG_LEVEL_INF);
 
-/* --- generated from the XML export: match these names to your ui/generated/
- * files --- */
 #include "display_gen.h"
-#include "screens/barometer_gen.h"
-#include "screens/home_gen.h"
-#include "screens/motion_gen.h"
-#include "screens/settings_gen.h"
 
 #include "../sensors/baro/bmp581.h"
 #include "../sensors/imu/lsm6dsox.h"
 #include "../sensors/mag/lis3mdl_m.h"
 #include "../sensors/mag/compass.h"
 #include "screens/motion.h"
+#include "nav.h"
 
 const struct device *display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
 
-static void lvgl_timer_cb(lv_timer_t *t) {
-  ARG_UNUSED(t);
-  lv_timer_handler();
-}
-
-static lv_obj_t *screens[4]; /* 0 home, 1 barometer, 2 motion, 3 settings */
 static atomic_t screen_request = ATOMIC_INIT(-1);
-
-/* ---------- screen switching ---------- */
-static void on_active_screen(lv_observer_t *o, lv_subject_t *s) {
-  int i = lv_subject_get_int(s);
-  if (i < 0 || i >= 4 || !screens[i])
-    return;
-  if (lv_screen_active() == screens[i])
-    return; /* already shown */
-  lv_screen_load(screens[i]);
-}
 
 /* safe to call from the shell thread — no LVGL touched here */
 void ui_request_screen(int idx) { atomic_set(&screen_request, idx); }
@@ -91,7 +70,7 @@ void sensors_baro_update(const struct baro_data *baro) {
 
 static void ui_service_timer(lv_timer_t *t) {
   int req = atomic_set(&screen_request, -1);
-  if (req >= 0 && req < 4)
+  if (req >= 0 && nav_get_screen(req) != NULL)
     lv_subject_set_int(&active_screen, req);
 
   struct baro_data baro;
@@ -126,25 +105,15 @@ int lvgl_display_init(void) {
   lv_theme_t *th = lv_theme_default_init(disp, lv_color_hex(0x2E5BFF), lv_color_hex(0x2E5BFF), false, &lv_font_montserrat_14);
   lv_display_set_theme(disp, th);
 
-  screens[0] = home_create();
-  screens[1] = barometer_create();
-  screens[2] = motion_create();
-  screens[3] = settings_create();
+  /* register screens — nav_init() creates them, builds overlay & observer */
+  nav_register(0, "Home",      0xf015, "Main",    home_create);
+  nav_register(1, "Barometer", 0xf6fc, "Sensors", barometer_create);
+  nav_register(2, "Motion",    0xf14e, "Sensors", motion_create);
+  nav_register(3, "Settings",  0xf013, "System",  settings_create);
+  nav_init();
 
   home_bind_static();
-  motion_ui_init(screens[2]);
-
-  /* make the first screen opaque so it covers stale GRAM */
-  lv_obj_set_style_bg_color(screens[0], lv_color_hex(0xEEF1F5), 0);
-  lv_obj_set_style_bg_opa(screens[0], LV_OPA_COVER, 0);
-
-  /* load the first screen directly — no animation at init */
-  lv_screen_load(screens[0]);
-
-  /* set the current value first, then observe, so the observer
-     only handles later, user-driven switches */
-  lv_subject_set_int(&active_screen, 0);
-  lv_subject_add_observer(&active_screen, on_active_screen, NULL);
+  motion_ui_init(nav_get_screen(2));
 
   /* render the first frame on the normal path, then reveal */
   lv_timer_handler();
@@ -162,5 +131,5 @@ static int cmd_display(const struct shell *sh, size_t argc, char **argv) {
   shell_print(sh, "requested screen %s", argv[1]);
   return 0;
 }
-SHELL_CMD_ARG_REGISTER(display, NULL, "display <index 0-3>", cmd_display, 2, 2);
+SHELL_CMD_ARG_REGISTER(display, NULL, "display <screen index>", cmd_display, 2, 2);
 #endif

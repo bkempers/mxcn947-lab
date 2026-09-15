@@ -96,9 +96,7 @@ extern lv_style_t label_xs;
 extern lv_style_t unit;
 extern lv_style_t pill;
 extern lv_style_t dot;
-extern lv_style_t dock_style;
 extern lv_style_t icon;
-extern lv_style_t navbar;
 extern lv_style_t content;
 
 /*----------------
@@ -167,7 +165,8 @@ void display_init_gen(const char * asset_path);
 /*Include all the widgets, components and screens of this library*/
 #include "components/info_row_gen.h"
 #include "components/metric_tile_gen.h"
-#include "components/switcher_gen.h"
+#include "components/nav_item_gen.h"
+#include "components/nav_overlay_gen.h"
 #include "screens/barometer_gen.h"
 #include "screens/home_gen.h"
 #include "screens/motion_gen.h"

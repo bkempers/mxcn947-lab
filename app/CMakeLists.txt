@@ -26,6 +26,7 @@ set(SOURCES
     src/sensors/mag/compass.c
     src/sensors/mag/mag_calibration.c
     src/display/lvgl_main.c
+    src/display/nav.c
     src/display/screens/motion.c
     ${DISPLAY_GEN}
 )

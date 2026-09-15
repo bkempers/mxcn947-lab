@@ -60,6 +60,5 @@
 				<metric_tile caption="PRESSURE" value_subject="press_str" unit_str="hPa" />
 			</lv_obj>
 		</lv_obj>
-		<switcher />
 	</view>
 </screen>

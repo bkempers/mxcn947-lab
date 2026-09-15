@@ -1,9 +1,9 @@
 /**
- * @file switcher_gen.h
+ * @file nav_item_gen.h
  */
 
-#ifndef LVGL_PRO_SWITCHER_GEN_H
-#define LVGL_PRO_SWITCHER_GEN_H
+#ifndef LVGL_PRO_NAV_ITEM_GEN_H
+#define LVGL_PRO_NAV_ITEM_GEN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,7 +37,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * switcher_create(lv_obj_t * parent);
+lv_obj_t * nav_item_create(lv_obj_t * parent, const char * icon_text, const char * label_text);
 
 /**********************
  *      MACROS
@@ -47,4 +47,4 @@ lv_obj_t * switcher_create(lv_obj_t * parent);
 } /*extern "C"*/
 #endif
 
-#endif /*LVGL_PRO_SWITCHER_GEN_H*/
+#endif /*LVGL_PRO_NAV_ITEM_GEN_H*/

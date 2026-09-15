@@ -149,8 +149,6 @@ lv_obj_t * motion_create(void)
         lv_label_bind_text(lv_label_5, &pitch_str, NULL);
         lv_obj_add_style(lv_label_5, &value, 0);
 
-        switcher_create(lv_obj_0);
-
         the_root = lv_obj_0;
     }
     #endif

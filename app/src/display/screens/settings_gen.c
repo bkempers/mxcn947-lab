@@ -56,22 +56,29 @@ lv_obj_t * settings_create(void)
         lv_obj_add_style(lv_label_0, &title, 0);
 
         lv_obj_t * lv_obj_2 = lv_obj_create(lv_obj_1);
+        lv_obj_set_width(lv_obj_2, lv_pct(100));
+        lv_obj_set_height(lv_obj_2, LV_SIZE_CONTENT);
         lv_obj_set_flex_flow(lv_obj_2, LV_FLEX_FLOW_COLUMN);
         lv_obj_add_style(lv_obj_2, &card_style, 0);
         lv_obj_t * lv_label_1 = lv_label_create(lv_obj_2);
-        lv_label_set_text(lv_label_1, "SYSTEM");
-        lv_obj_set_style_pad_bottom(lv_label_1, 4, 0);
+        lv_label_set_text(lv_label_1, "UPTIME");
         lv_obj_add_style(lv_label_1, &label_xs, 0);
 
-        info_row_create(lv_obj_2, "Board", &board_str);
+        lv_obj_t * lv_label_2 = lv_label_create(lv_obj_2);
+        lv_label_bind_text(lv_label_2, &uptime_str, NULL);
+        lv_obj_set_style_pad_top(lv_label_2, 2, 0);
+        lv_obj_add_style(lv_label_2, &hero, 0);
 
-        info_row_create(lv_obj_2, "Zephyr", &zephyr_str);
+        lv_obj_t * lv_obj_3 = lv_obj_create(lv_obj_1);
+        lv_obj_set_flex_flow(lv_obj_3, LV_FLEX_FLOW_COLUMN);
+        lv_obj_add_style(lv_obj_3, &card_style, 0);
+        info_row_create(lv_obj_3, "Board", &board_str);
 
-        info_row_create(lv_obj_2, "Firmware", &firmware_str);
+        info_row_create(lv_obj_3, "Zephyr", &zephyr_str);
 
-        info_row_create(lv_obj_2, "Built", &built_str);
+        info_row_create(lv_obj_3, "Firmware", &firmware_str);
 
-        switcher_create(lv_obj_0);
+        info_row_create(lv_obj_3, "Built", &built_str);
 
         the_root = lv_obj_0;
     }

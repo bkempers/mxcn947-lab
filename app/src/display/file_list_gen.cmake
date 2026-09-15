@@ -3,7 +3,8 @@ list(
   LV_EDITOR_PROJECT_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/components/info_row_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/metric_tile_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/components/switcher_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/nav_item_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/nav_overlay_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/display_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/display.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/icons_24_data.c
